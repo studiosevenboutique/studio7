@@ -6,7 +6,7 @@ import IntersectionObserver from "@/components/animations/intersection-observer"
 
 const classes = [
   {
-    title: "POWER FLOW",
+    title: "FOUNDATION",
     description: "A thoughtfully designed reformer Pilates class that brings together gentle strength and mindful movement. This full-body experience encourages you to move with intention, lengthening, strengthening, with a focus on proper alignment. The perfect introduction to Pilates.",
     duration: "45 min",
     level: "Level 1",
