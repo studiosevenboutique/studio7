@@ -8,7 +8,7 @@ import IntersectionObserver from "@/components/animations/intersection-observer"
 const packages = [
   {
     title: "Single Class",
-    price: "$35",
+    price: "$32",
     description: "Perfect for first-time visitors or occasional drop-ins.",
     features: ["Access to any class format", "Equipment provided", "Valid for 30 days", "No commitment"],
     popular: false,
