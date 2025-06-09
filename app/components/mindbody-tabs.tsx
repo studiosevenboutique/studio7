@@ -80,14 +80,7 @@ export default function MindbodyTabs() {
           >
             Private
           </button>
-          <button
-            className={`px-6 py-2 font-medium text-sm rounded-t-lg ${
-              activeTab === "my-schedule" ? "bg-white text-black" : "bg-gray-100 text-gray-500 hover:text-gray-700"
-            }`}
-            onClick={() => handleTabChange("my-schedule")}
-          >
-            My Schedule
-          </button>
+       
         </div>
         <div className="flex space-x-4">
           <button
