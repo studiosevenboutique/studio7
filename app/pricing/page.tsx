@@ -122,7 +122,7 @@ export default function PricingPage() {
                 <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-2">
                   <h2 className="text-2xl sm:text-xl font-medium mb-6 sm:mb-4">Intro Offer</h2>
                   <p className="text-gray-600 mb-1 sm:mb-0 text-base sm:text-sm">3 x classes. New Clients only.</p>
-                  <p className="text-gray-600 mb-6 sm:mb-2 text-base sm:text-sm">Expires 7 days after first booking</p>
+                  <p className="text-gray-600 mb-6 sm:mb-2 text-base sm:text-sm"></p>
                   <p className="text-3xl sm:text-2xl font-semibold mb-6 sm:mb-4">$60</p>
                 </CardContent>
                 <CardFooter className="pb-6 sm:pb-4">
