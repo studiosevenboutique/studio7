@@ -1,0 +1,47 @@
+import { NextRequest, NextResponse } from 'next/server'
+
+export function middleware(req: NextRequest) {
+  // Skip middleware for static assets and API routes
+  if (
+    req.nextUrl.pathname.startsWith('/_next') ||
+    req.nextUrl.pathname.startsWith('/api') ||
+    req.nextUrl.pathname.includes('.')
+  ) {
+    return NextResponse.next()
+  }
+
+  // Check for basic auth
+  const basicAuth = req.headers.get('Authorization')
+  const url = req.nextUrl
+
+  if (basicAuth) {
+    const authValue = basicAuth.split(' ')[1]
+    const [user, pwd] = atob(authValue).split(':')
+
+    // Set your desired username and password here
+    if (user === 'studio7' && pwd === 'pilates2025') {
+      return NextResponse.next()
+    }
+  }
+
+  // If no auth or wrong credentials, request authentication
+  return new NextResponse('Authentication required', {
+    status: 401,
+    headers: {
+      'WWW-Authenticate': 'Basic realm="Studio Seven Pilates"',
+    },
+  })
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
+}

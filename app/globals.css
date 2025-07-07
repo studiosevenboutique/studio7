@@ -1,0 +1,381 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-raleway font-medium tracking-tight;
+  }
+  h1 {
+    @apply text-4xl md:text-6xl font-light;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-light;
+    letter-spacing: -0.01em;
+  }
+  p {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    @apply text-base md:text-lg font-light leading-relaxed;
+    letter-spacing: 0.01em;
+  }
+  button, input, select, textarea {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  button {
+    @apply rounded-full;
+  }
+
+  /* Class titles */
+  .classes-section .card-title {
+    font-family: var(--font-pt-sans), system-ui, sans-serif !important;
+    text-transform: uppercase !important;
+  }
+
+  .stagger-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .stagger-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-card.animate > * {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .stagger-card > * {
+    transition: all 0.8s ease-out;
+  }
+
+  /* Add hover effect back */
+  .stagger-card .image-container {
+    transition: transform 0.7s ease-out;
+  }
+
+  .stagger-card .image-container:hover {
+    transform: scale(1.02);
+  }
+}
+
+.font-sans {
+  font-family: var(--font-raleway), system-ui, sans-serif;
+}
+
+.font-dots {
+  font-family: var(--font-raleway-dots), cursive;
+}
+
+.font-special-gothic {
+  font-family: var(--font-special-gothic), var(--font-raleway), system-ui, sans-serif;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll-driven animations */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-fade-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.animate-fade-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.6s ease-out forwards;
+}
+
+/* Snap scrolling */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
+.stagger-card.animate .animate-in {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: var(--stagger-delay, 0s);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-card.animate > * {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.stagger-card > * {
+  transition: all 0.5s ease-out;
+}
+
+/* MindBody Widget Styling */
+.healcode-widget *,
+.healcode-widget input,
+.healcode-widget select,
+.healcode-widget textarea,
+.healcode-widget button {
+  font-family: var(--font-montserrat), system-ui, sans-serif !important;
+}
+
+.healcode-widget h1,
+.healcode-widget h2,
+.healcode-widget h3,
+.healcode-widget h4,
+.healcode-widget h5,
+.healcode-widget h6 {
+  font-family: var(--font-raleway), system-ui, sans-serif !important;
+}
+
+.healcode-widget input[type="text"],
+.healcode-widget input[type="email"],
+.healcode-widget input[type="password"],
+.healcode-widget select,
+.healcode-widget textarea {
+  @apply rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/20;
+}
+
+.healcode-widget button {
+  @apply bg-primary text-white rounded-full px-6 py-2 hover:bg-primary/90 transition-colors;
+}
+
+/* Animation classes for DataSplitting component */
+.words-animation .word,
+.chars-animation .char,
+.lines-animation .line {
+  @apply opacity-0 translate-y-5 transition-all duration-500 ease-out;
+}
+
+.words-animation.animate .word,
+.chars-animation.animate .char,
+.lines-animation.animate .line {
+  @apply opacity-100 translate-y-0;
+}
+
+/* Animation classes for IntersectionObserver component */
+/* Note: .stagger-card > * rules already exist, ensure no conflict or merge if needed */
+/* The reference project had these extra nth-child delays */
+.stagger-card.animate > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-card.animate > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-card.animate > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-card.animate > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-card.animate > *:nth-child(5) { transition-delay: 0.5s; }
+
+/* 3D hover effect for buttons */
+/* Note: .btn-3d rules exist in animations.css, ensure no conflict or merge if needed */
+.btn-3d {
+  @apply transition-transform duration-300 ease-out;
+  transform-style: preserve-3d;
+}
+
+.btn-3d:hover {
+  transform: translate3d(0, -5px, 10px);
+}
+
+/* Parallax effect for background elements */
+/* Note: .parallax rules exist in animations.css, ensure no conflict or merge if needed */
+.parallax {
+  @apply transition-transform duration-500 ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Stagger Animation */
+.stagger-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.stagger-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button 3D Effect */
+.btn-3d {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.btn-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
