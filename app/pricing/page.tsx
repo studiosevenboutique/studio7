@@ -161,7 +161,7 @@ export default function PricingPage() {
               <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1">
                 <CardContent className="pt-4 pb-4 px-6 sm:pt-2 sm:pb-2 sm:px-2">
                   <h2 className="text-xl sm:text-lg font-medium mb-4 sm:mb-2">10 Class Pack</h2>
-                  <p className="text-2xl sm:text-xl font-semibold mb-4 sm:mb-2">$250</p>
+                  <p className="text-2xl sm:text-xl font-semibold mb-4 sm:mb-2">$275</p>
                 </CardContent>
                 <CardFooter className="pb-4 sm:pb-2">
                   <div className="w-full flex justify-center">{renderMindBodyWidget("100008", "Buy Now")}</div>
