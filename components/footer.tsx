@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Instagram, Facebook, Mail, MapPin, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -11,6 +11,39 @@ import { throttle } from "@/lib/utils"
 import Image from "next/image"
 
 export default function Footer() {
+  const [email, setEmail] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@studiosevenboutique.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          _subject: "Newsletter Subscription",
+          _template: "table"
+        })
+      })
+
+      if (response.ok) {
+        setIsSuccess(true)
+        setEmail("")
+        setTimeout(() => setIsSuccess(false), 5000)
+      }
+    } catch (error) {
+      console.error("Newsletter subscription error:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
   useEffect(() => {
     // Initialize animations for elements already in view
     const handleScroll = throttle(() => {
@@ -61,14 +94,16 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-4 text-charcoal/80">
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/studiosevenboutique/"
                 className="hover:text-charcoal transition-colors transform-gpu transition-all duration-300 hover:scale-110"
               >
                 <Instagram size={18} />
                 <span className="sr-only">Instagram</span>
               </Link>
               <Link
-                href="https://facebook.com"
+                href="https://www.facebook.com/people/Studio-Seven-Boutique/61576876208997/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-charcoal transition-colors transform-gpu transition-all duration-300 hover:scale-110"
               >
                 <Facebook size={18} />
@@ -171,21 +206,36 @@ export default function Footer() {
             <p className="text-sm text-charcoal/80 mb-4">
               Subscribe to our newsletter for class updates, wellness tips, and special offers.
             </p>
-            <form className="space-y-2">
+            
+            {isSuccess && (
+              <div className="bg-green-50 border border-green-200 text-green-800 p-3 mb-4 rounded text-sm">
+                Thank you for subscribing! Welcome to our community.
+              </div>
+            )}
+            
+            <form onSubmit={handleNewsletterSubmit} className="space-y-2">
               <Input
                 type="email"
                 placeholder="Your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="bg-white border-sand focus-visible:ring-charcoal transform-gpu transition-all duration-300 focus:scale-[1.01]"
+                disabled={isSubmitting}
               />
-              <Button type="submit" className="w-full bg-charcoal text-white hover:bg-charcoal/90 rounded-full btn-3d">
-                Subscribe
+              <Button 
+                type="submit" 
+                className="w-full bg-charcoal text-white hover:bg-charcoal/90 rounded-full btn-3d"
+                disabled={isSubmitting || !email.trim()}
+              >
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
               </Button>
             </form>
           </IntersectionObserver>
         </div>
 
         <div className="mt-8 pt-4 border-t border-sand/50 text-center text-xs text-charcoal/70">
-          <p>© 2025 Studio Seven. All rights reserved.</p>
+          <p className="text-xs opacity-60">© 2025 Studio Seven. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -40,7 +40,7 @@
 - ✅ **Matcha Bar**: Beautiful layout with matcha.jpg, proper text sizing
 - ✅ **Navigation**: Dropdown menu for About (About Us + Matcha Bar)
 
-## 🔄 **Files Ready for Git Commit**
+### 🔄 **Files Ready for Git Commit**
 
 ### **New SEO Files:**
 ```
@@ -70,6 +70,11 @@ components/navbar.tsx (dropdown navigation)
 components/hero.tsx (background image)
 components/about-section.tsx (image sizing)
 app/about/page.tsx (mother-daughter image)
+```
+
+### **Fixed Issues:**
+```
+middleware.ts (removed empty file causing errors)
 ```
 
 ## 🚀 **Ready to Deploy Commands**

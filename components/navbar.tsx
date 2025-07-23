@@ -99,7 +99,7 @@ export default function Navbar() {
                 isScrolled || !isHomePage
                   ? "text-charcoal hover:text-stone animate-in fade-in duration-1000" 
                   : "text-white hover:text-white/80",
-                (pathname === "/about" || pathname === "/matcha-bar") && "after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] after:bg-current"
+                (pathname === "/about" || pathname === "/matcha-bar") && "after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] after:bg-stone"
               )}
               style={{ transitionDelay: "0.1s" }}
             >
@@ -113,11 +113,21 @@ export default function Navbar() {
                   : "bg-transparent backdrop-blur-sm border-none"
               )}
             >
-              <DropdownMenuItem className="uppercase text-sm text-charcoal hover:text-stone font-['PT_Sans']" asChild>
+              <DropdownMenuItem className={cn(
+                "uppercase text-sm font-['PT_Sans'] transition-colors duration-300",
+                isScrolled || !isHomePage 
+                  ? "text-charcoal hover:text-stone" 
+                  : "text-white hover:text-white/80"
+              )} asChild>
                 <Link href="/about">About Us</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="uppercase text-sm text-charcoal hover:text-stone font-['PT_Sans']" asChild>
-                <Link href="/matcha-bar">Matcha Bar</Link>
+              <DropdownMenuItem className={cn(
+                "uppercase text-sm font-['PT_Sans'] transition-colors duration-300",
+                isScrolled || !isHomePage 
+                  ? "text-green-700 hover:text-green-800" 
+                  : "text-green-300 hover:text-green-200"
+              )} asChild>
+                <Link href="/matcha-bar">🍵 Matcha Bar</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -129,7 +139,7 @@ export default function Navbar() {
                 isScrolled || !isHomePage
                   ? "text-charcoal hover:text-stone animate-in fade-in duration-1000" 
                   : "text-white hover:text-white/80",
-                pathname.startsWith("/classes") && "after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] after:bg-current"
+                pathname.startsWith("/classes") || pathname === "/privates" || pathname === "/events" && "after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] after:bg-stone"
               )}
               style={{ transitionDelay: "0.2s" }}
             >
@@ -143,10 +153,36 @@ export default function Navbar() {
                   : "bg-transparent backdrop-blur-sm border-none"
               )}
             >
-              <DropdownMenuItem className="uppercase text-sm text-charcoal hover:text-stone font-['PT_Sans']" asChild>
+              <DropdownMenuItem className={cn(
+                "uppercase text-sm font-['PT_Sans'] transition-colors duration-300",
+                isScrolled || !isHomePage 
+                  ? "text-charcoal hover:text-stone" 
+                  : "text-white hover:text-white/80"
+              )} asChild>
                 <Link href="/classes">All Classes</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="uppercase text-sm text-charcoal hover:text-stone font-['PT_Sans']" asChild>
+              <DropdownMenuItem className={cn(
+                "uppercase text-sm font-['PT_Sans'] transition-colors duration-300",
+                isScrolled || !isHomePage 
+                  ? "text-charcoal hover:text-stone" 
+                  : "text-white hover:text-white/80"
+              )} asChild>
+                <Link href="/events">Events</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className={cn(
+                "uppercase text-sm font-['PT_Sans'] transition-colors duration-300",
+                isScrolled || !isHomePage 
+                  ? "text-charcoal hover:text-stone" 
+                  : "text-white hover:text-white/80"
+              )} asChild>
+                <Link href="/privates">Privates</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className={cn(
+                "uppercase text-sm font-['PT_Sans'] transition-colors duration-300",
+                isScrolled || !isHomePage 
+                  ? "text-charcoal hover:text-stone" 
+                  : "text-white hover:text-white/80"
+              )} asChild>
                 <Link href="/pricing">Pricing</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -159,7 +195,7 @@ export default function Navbar() {
               isScrolled || !isHomePage
                 ? "text-charcoal hover:text-stone animate-in fade-in duration-1000" 
                 : "text-white hover:text-white/80",
-              pathname === "/schedule" && "after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] after:bg-current"
+              pathname === "/schedule" && "after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] after:bg-stone"
             )}
             style={{ transitionDelay: "0.3s" }}
           >
@@ -173,7 +209,7 @@ export default function Navbar() {
               isScrolled || !isHomePage
                 ? "text-charcoal hover:text-stone animate-in fade-in duration-1000" 
                 : "text-white hover:text-white/80",
-              pathname === "/contact" && "after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] after:bg-current"
+              pathname === "/contact" && "after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-[1px] after:bg-stone"
             )}
             style={{ transitionDelay: "0.4s" }}
           >
@@ -201,10 +237,10 @@ export default function Navbar() {
             </Link>
             <Link
               href="/matcha-bar"
-              className="text-sm uppercase tracking-wider py-2 text-stone/80 hover:text-stone transition-colors pl-4"
+              className="text-sm uppercase tracking-wider py-2 text-green-700 hover:text-green-800 transition-colors pl-4 font-['PT_Sans']"
               onClick={() => setIsOpen(false)}
             >
-              Matcha Bar
+              🍵 Matcha Bar
             </Link>
             <Link
               href="/classes"
@@ -214,8 +250,22 @@ export default function Navbar() {
               Classes
             </Link>
             <Link
+              href="/events"
+              className="text-sm uppercase tracking-wider py-2 text-charcoal hover:text-stone transition-colors pl-4 font-['PT_Sans']"
+              onClick={() => setIsOpen(false)}
+            >
+              Events
+            </Link>
+            <Link
+              href="/privates"
+              className="text-sm uppercase tracking-wider py-2 text-charcoal hover:text-stone transition-colors pl-4 font-['PT_Sans']"
+              onClick={() => setIsOpen(false)}
+            >
+              Privates
+            </Link>
+            <Link
               href="/pricing"
-              className="text-sm uppercase tracking-wider py-2 text-stone/80 hover:text-stone transition-colors pl-4"
+              className="text-sm uppercase tracking-wider py-2 text-charcoal hover:text-stone transition-colors pl-4 font-['PT_Sans']"
               onClick={() => setIsOpen(false)}
             >
               Pricing

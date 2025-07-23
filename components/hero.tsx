@@ -73,13 +73,13 @@ export default function Hero() {
       {isHomePage && <AnimatedLogo scrollProgress={scrollProgress} dissolved={logoDissolved} />}
 
       <div 
-        className={`container-custom relative z-20 text-white transition-all duration-[2000ms] ${
+        className={`container-custom relative z-20 text-white transition-all duration-[2s] ${
           showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
         <div className="max-w-2xl mx-auto mt-40" style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}>
           <div 
-            className={`text-base md:text-lg mb-8 font-medium opacity-90 max-w-lg overflow-hidden text-center mx-auto transition-all duration-[2000ms] ${
+            className={`text-base md:text-lg mb-8 font-medium opacity-90 max-w-lg overflow-hidden text-center mx-auto transition-all duration-[2s] ${
               showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ transitionDelay: '400ms' }}
@@ -91,14 +91,14 @@ export default function Hero() {
               />
             )}
           </div>
-          <div className={`flex flex-col sm:flex-row gap-4 mt-12 justify-center transition-all duration-[2000ms] ${
+          <div className={`flex flex-col sm:flex-row gap-4 mt-12 justify-center transition-all duration-[2s] ${
             showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
           style={{ transitionDelay: '600ms' }}
           >
             <Button 
               size="lg" 
-              className={`bg-white text-charcoal border-2 border-white hover:bg-white/80 rounded-[200px] btn-3d px-12 py-3 transition-all duration-[2000ms] ${
+              className={`bg-white text-charcoal border-2 border-white hover:bg-white/80 rounded-[200px] btn-3d px-12 py-3 transition-all duration-[2s] ${
                 showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
               style={{ transitionDelay: '800ms' }}
@@ -109,7 +109,7 @@ export default function Hero() {
             <Button
               variant="outline"
               size="lg"
-              className={`bg-white text-charcoal border-2 border-white hover:bg-white/80 rounded-[200px] btn-3d px-12 py-3 transition-all duration-[2000ms] ${
+              className={`bg-white text-charcoal border-2 border-white hover:bg-white/80 rounded-[200px] btn-3d px-12 py-3 transition-all duration-[2s] ${
                 showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
               style={{ transitionDelay: '1000ms' }}

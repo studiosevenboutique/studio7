@@ -17,7 +17,7 @@ const classes = [
 			"A thoughtfully designed reformer Pilates class that brings together gentle strength and mindful movement. This full-body experience encourages you to move with intention, lengthening, strengthening, with a focus on proper alignment. The perfect introduction to Pilates.",
 		duration: "45 min",
 		level: " 1",
-		imageSrc: "/images/foundation.jpg",
+		imageSrc: "/images/sculpttone.jpg",
 	},
 	{
 		id: "sculpt-and-tone",
