@@ -27,13 +27,20 @@ const classes = [
     level: "Level 3",
     link: "/classes/the-burn",
   },
+  {
+    title: "REST & RECOVER",
+    description: "Unwind and reset in this restorative reformer class designed to gently stretch the body, quiet the mind, and support deep recovery. Guided through slow, intentional movements and lengthening stretches, you'll melt into stillness while releasing tension from head to toe. The class ends with a meditative sound bath to calm the nervous system and leave you feeling grounded, recharged, and at ease.",
+    duration: "1 hour",
+    level: "All levels",
+    link: "/classes/rest-and-recover",
+  },
 ]
 
 export default function ClassesSection() {
   return (
     <section className="pt-20 pb-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-cream via-cream to-charcoal/5"></div>
-      <div className="container-custom max-w-7xl relative z-10">
+      <div className="container-custom max-w-full px-4 relative z-10">
         <div className="text-center mb-12">
           <IntersectionObserver className="stagger-card" threshold={0.2} triggerOnce={true}>
             <h2 className="text-3xl md:text-4xl mb-4 font-light section-title opacity-0 translate-y-8 animate-in">
@@ -50,7 +57,7 @@ export default function ClassesSection() {
             </div>
           </IntersectionObserver>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {classes.map((classItem, index) => (
             <IntersectionObserver
               key={classItem.title}

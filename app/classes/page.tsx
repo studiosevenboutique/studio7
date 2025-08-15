@@ -37,6 +37,15 @@ const classes = [
 		level: " 3",
 		imageSrc: "/images/burn1.jpg",
 	},
+	{
+		id: "rest-and-recover",
+		title: "REST & RECOVER",
+		description:
+			"Unwind and reset in this restorative reformer class designed to gently stretch the body, quiet the mind, and support deep recovery. Guided through slow, intentional movements and lengthening stretches, you'll melt into stillness while releasing tension from head to toe. The class ends with a meditative sound bath to calm the nervous system and leave you feeling grounded, recharged, and at ease.",
+		duration: "1 hour",
+		level: "All levels",
+		imageSrc: "/images/restandrecover.JPG",
+	},
 ]
 
 export default function ClassesPage() {
@@ -68,8 +77,8 @@ export default function ClassesPage() {
 
 	return (
 		<div className="pt-20 min-h-screen">
-			<div className="container-custom py-12">
-				<div className="max-w-5xl mx-auto">
+			<div className="container-custom py-12 px-4">
+				<div className="max-w-full mx-auto">
 					<div className="text-center mb-12">
 						<h1 className="text-4xl font-light mb-4 section-title">
 							<DataSplitting type="words" delay={0.2} stagger={0.1}>
@@ -89,7 +98,7 @@ export default function ClassesPage() {
 						</div>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 						{classes.map((cls, index) => (
 							<IntersectionObserver
 								key={index}
@@ -106,7 +115,7 @@ export default function ClassesPage() {
 													src={cls.imageSrc}
 													alt={`${cls.title} - Vector illustration`}
 													fill
-													className="object-cover"
+													className={cls.id === "rest-and-recover" ? "object-cover object-bottom" : "object-cover"}
 													priority={index < 2}
 												/>
 											</div>

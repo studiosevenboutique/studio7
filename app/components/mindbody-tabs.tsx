@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 
-type TabType = "group-classes" | "private" | "my-schedule" | "registrations" | "sign-in"
+type TabType = "group-classes" | "private" | "courses" | "my-schedule" | "registrations" | "sign-in"
 
 export default function MindbodyTabs() {
   const [activeTab, setActiveTab] = useState<TabType>("group-classes")
@@ -45,6 +45,11 @@ export default function MindbodyTabs() {
     <!-- Mindbody Appointments widget end -->
   `
 
+  const coursesHtml = `
+    <script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" type="text/javascript"></script>
+    <healcode-widget data-type="enrollments" data-widget-partner="object" data-widget-id="22107556f680" data-widget-version="0" ></healcode-widget>
+  `
+
   const myScheduleHtml = `
     <script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" type="text/javascript"></script>
     <healcode-widget data-type="enrollments" data-widget-partner="object" data-widget-id="22105246f680" data-widget-version="0"></healcode-widget>
@@ -80,7 +85,15 @@ export default function MindbodyTabs() {
           >
             Private
           </button>
-       
+          <button
+            className={`px-6 py-2 font-medium text-sm rounded-t-lg ${
+              activeTab === "courses" ? "bg-white text-black" : "bg-gray-100 text-gray-500 hover:text-gray-700"
+            }`}
+            onClick={() => handleTabChange("courses")}
+          >
+            Courses
+          </button>
+
         </div>
         <div className="flex space-x-4">
           <button
@@ -155,6 +168,31 @@ export default function MindbodyTabs() {
                   `}
                   style={{ width: "100%", height: "100%", border: "none" }}
                   title="Private"
+                />
+              </div>
+            )}
+
+            {activeTab === "courses" && (
+              <div className="h-[600px]">
+                <iframe
+                  srcDoc={`
+                    <!DOCTYPE html>
+                    <html>
+                      <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Courses</title>
+                        <style>
+                          body { margin: 0; padding: 0; font-family: sans-serif; }
+                        </style>
+                      </head>
+                      <body>
+                        ${coursesHtml}
+                      </body>
+                    </html>
+                  `}
+                  style={{ width: "100%", height: "100%", border: "none" }}
+                  title="Courses"
                 />
               </div>
             )}
