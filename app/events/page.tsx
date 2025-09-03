@@ -12,17 +12,17 @@ import { FormPopover } from "@/components/form-popover"
 // Sample events data - replace with real data
 const upcomingEvents = [
   {
-    id: 2,
-    title: "The Studio Seven Drip Room",
-    date: "September 6th",
-    time: "10:00 AM - 3:00 PM",
+    id: 1,
+    title: "The Sunday Reset",
+    date: "September 21st",
+    time: "10:00 AM - 2:00 PM",
     location: "Studio Seven",
-    description: "Introducing our newest addition to the studio: The Studio Boost Infusion + Vital 7 NAD+ Injectable — available for the perfect post class recovery boost.",
-    price: "TBD",
-    image: "/images/chair.JPG",
-    spots: "Limited availability",
-    bookingUrl: "https://reverymed.janeapp.com/locations/studio-seven-boutique-vitamin-infusion-clinic/book#staff_member/2",
-    buttonText: "Book Now"
+    description: "Join us for the ultimate reset at Studio Seven - with a morning designed to move, restore, and recharge! Start your morning with an outdoor mat Pilates class at 10AM, then restore with saunas, cold plunges, our in-studio matcha bar, protein bites, and optional glutathione detox boosts.",
+    price: "$30-$45",
+    image: "/images/sundayrecover.png",
+    spots: "Limited spots available",
+    bookingUrl: "https://www.eventbrite.com/e/the-sunday-reset-tickets-1626644550639?aff=oddtdtcreator",
+    buttonText: "RSVP"
   }
 ]
 

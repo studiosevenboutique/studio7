@@ -117,7 +117,7 @@ export default function PricingPage() {
             <h2 className="text-xl md:text-2xl font-light mb-4 text-center section-title mt-8">
               New to Our Studio?
             </h2>
-            <div className="grid md:grid-cols-2 gap-4 mb-16">
+            <div className="grid md:grid-cols-3 gap-4 mb-16">
               <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
                 <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-2 flex-grow flex flex-col">
                   <h2 className="text-2xl sm:text-xl font-medium mb-6 sm:mb-4">Intro Offer</h2>
@@ -142,6 +142,19 @@ export default function PricingPage() {
                 </CardContent>
                 <CardFooter className="pb-6 sm:pb-4">
                   <div className="w-full flex justify-center">{renderMindBodyWidget("100003", "Book Class")}</div>
+                </CardFooter>
+              </Card>
+              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
+                <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-2 flex-grow flex flex-col">
+                  <h2 className="text-2xl sm:text-xl font-medium mb-6 sm:mb-4">B2S Special</h2>
+                  <div className="flex-grow">
+                    <p className="text-gray-600 mb-1 sm:mb-0 text-base sm:text-sm">3 x classes. Available to all our clients</p>
+                    <p className="text-gray-600 mb-6 sm:mb-2 text-base sm:text-sm">&nbsp;</p>
+                  </div>
+                  <p className="text-3xl sm:text-2xl font-semibold mb-6 sm:mb-4">$75</p>
+                </CardContent>
+                <CardFooter className="pb-6 sm:pb-4">
+                  <div className="w-full flex justify-center">{renderMindBodyWidget("100036", "Buy Now")}</div>
                 </CardFooter>
               </Card>
             </div>
