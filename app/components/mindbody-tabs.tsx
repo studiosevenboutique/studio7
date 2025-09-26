@@ -4,8 +4,13 @@ import { useState, useEffect, useRef } from "react"
 
 type TabType = "group-classes" | "private" | "courses" | "my-schedule" | "registrations" | "sign-in"
 
-export default function MindbodyTabs() {
-  const [activeTab, setActiveTab] = useState<TabType>("group-classes")
+interface MindbodyTabsProps {
+  initialTab?: string
+  targetDate?: string | null
+}
+
+export default function MindbodyTabs({ initialTab = "group-classes", targetDate }: MindbodyTabsProps) {
+  const [activeTab, setActiveTab] = useState<TabType>(initialTab as TabType)
   const [isLoading, setIsLoading] = useState(true)
   const initialLoadDone = useRef(false)
 
@@ -47,7 +52,7 @@ export default function MindbodyTabs() {
 
   const coursesHtml = `
     <script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" type="text/javascript"></script>
-    <healcode-widget data-type="enrollments" data-widget-partner="object" data-widget-id="22107556f680" data-widget-version="0" ></healcode-widget>
+    <healcode-widget data-type="enrollments" data-widget-partner="object" data-widget-id="22107556f680" data-widget-version="0"></healcode-widget>
   `
 
   const myScheduleHtml = `
@@ -115,6 +120,13 @@ export default function MindbodyTabs() {
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-2 sm:p-4">
+        {targetDate && activeTab === "courses" && (
+          <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-sm text-blue-800">
+              <strong>📅 Looking for the October 29th event?</strong> Please navigate to <strong>October 29, 2025</strong> in the calendar below to find the "Detox, Flow, Restore with Dilene Duarte" event.
+            </p>
+          </div>
+        )}
         {isLoading ? (
           <div className="flex justify-center items-center h-[300px]">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>

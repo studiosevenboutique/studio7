@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import MindbodyTabs from "../components/mindbody-tabs"
 import Script from "next/script"
 
@@ -8,6 +9,11 @@ export default function SchedulePage() {
   const [scrollPosition, setScrollPosition] = useState(0)
   const [backgroundColor, setBackgroundColor] = useState("rgb(255, 255, 255)") // Start with white
   const [isLoaded, setIsLoaded] = useState(false)
+  const searchParams = useSearchParams()
+
+  // Get URL parameters
+  const initialTab = searchParams.get('tab') || 'group-classes'
+  const targetDate = searchParams.get('date')
 
   useEffect(() => {
     // Initial animation from white to hero color
@@ -61,7 +67,7 @@ export default function SchedulePage() {
       }}
     >
       <div className="pt-12 md:pt-20 px-2 sm:px-0">
-        <MindbodyTabs />
+        <MindbodyTabs initialTab={initialTab} targetDate={targetDate} />
       </div>
     </div>
   )

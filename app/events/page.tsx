@@ -19,9 +19,9 @@ const upcomingEvents = [
     location: "Studio Seven",
     description: "Join us for an evening of glow and guidance with special guest Dilene Duarte, as she dives into skincare from the inside out. Learn how to support your skin through mindful routines, holistic practices, and lymphatic drainage—and enjoy a live gua sha demo for the face and body using her signature tools, now available at Studio Seven. Enjoy signature collagen mocktails, sweet treats and complimentary ear seeds. All guests will receive a complimentary gift bag upon arrival. All proceeds will be donated to The Princess Margaret Cancer Centre in support of Breast Cancer Month.",
     price: "$100",
-    image: "/images/sundayrecover.png",
+    image: "/images/pri.png",
     spots: "Limited spots available",
-    bookingUrl: "/schedule",
+    bookingUrl: "/schedule?tab=courses&date=2025-10-29",
     buttonText: "RSVP"
   }
 ]
@@ -96,7 +96,7 @@ export default function EventsPage() {
 
   return (
     <div className="pt-20 min-h-screen">
-      <div className="container-custom py-8 px-4 sm:px-6 lg:px-8">
+      <div className="container-custom py-12">
         <div className="max-w-5xl mx-auto">
           {/* Upcoming Events */}
           <div className="mb-12">
@@ -106,7 +106,7 @@ export default function EventsPage() {
               <div className="space-y-4">
                 {upcomingEvents.map((event) => (
                   <Card key={event.id} className="overflow-hidden border-none shadow-lg rounded-xl">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+                    <div className="grid md:grid-cols-3 gap-0">
                       {/* Event Image */}
                       <div className="relative h-40 md:h-auto md:min-h-[200px]">
                         <Image
