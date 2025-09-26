@@ -46,6 +46,15 @@ const classes = [
 		level: "All levels",
 		imageSrc: "/images/restandrecover.JPG",
 	},
+	{
+		id: "slow-flow",
+		title: "SLOW FLOW",
+		description:
+			"Ease into your week with a gentle reformer class focused on mindful movement, deep stretching, and restorative flow. This class slows down the pace to help you connect with your breath, release tension, and move with intention — the perfect reset for body and mind.",
+		duration: "45 minutes",
+		level: "All levels",
+		imageSrc: "/images/unnamed.jpg",
+	},
 ]
 
 export default function ClassesPage() {
@@ -77,7 +86,7 @@ export default function ClassesPage() {
 
 	return (
 		<div className="pt-20 min-h-screen">
-			<div className="container-custom py-12 px-4">
+			<div className="container-custom py-8 px-4 sm:px-6 lg:px-8">
 				<div className="max-w-full mx-auto">
 					<div className="text-center mb-12">
 						<h1 className="text-4xl font-light mb-4 section-title">
@@ -98,7 +107,7 @@ export default function ClassesPage() {
 						</div>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
 						{classes.map((cls, index) => (
 							<IntersectionObserver
 								key={index}

@@ -67,7 +67,7 @@ export default function Navbar() {
         isHomePage && showNavbar && "animate-in fade-in slide-in-from-top duration-1000"
       )}
     >
-      <div className="container-custom flex items-center justify-between h-20">
+      <div className="container-custom flex items-center justify-between h-10 md:h-20">
         <button
           type="button"
           onClick={() => { window.location.href = "/"; }}
@@ -80,7 +80,7 @@ export default function Navbar() {
             width={500}
             height={94}
             className={cn(
-              "h-8 md:h-10 w-auto transition-all duration-700",
+              "h-6 md:h-10 w-auto transition-all duration-700",
               isScrolled || !isHomePage ? "filter-none" : "brightness-0 invert"
             )}
             style={{
@@ -226,7 +226,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute top-20 left-0 right-0 bg-white z-50 shadow-md animate-in fade-in slide-in-from-top duration-300">
+        <div className="md:hidden absolute top-10 md:top-20 left-0 right-0 bg-white z-50 shadow-md animate-in fade-in slide-in-from-top duration-300">
           <div className="container-custom py-6 flex flex-col space-y-4">
             <Link
               href="/about"

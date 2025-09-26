@@ -34,30 +34,37 @@ const classes = [
     level: "All levels",
     link: "/classes/rest-and-recover",
   },
+  {
+    title: "SLOW FLOW",
+    description: "Ease into your week with a gentle reformer class focused on mindful movement, deep stretching, and restorative flow. This class slows down the pace to help you connect with your breath, release tension, and move with intention — the perfect reset for body and mind.",
+    duration: "45 minutes",
+    level: "All levels",
+    link: "/classes/slow-flow",
+  },
 ]
 
 export default function ClassesSection() {
   return (
-    <section className="pt-20 pb-32 relative">
+    <section className="pt-12 md:pt-20 pb-20 md:pb-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-cream via-cream to-charcoal/5"></div>
-      <div className="container-custom max-w-full px-4 relative z-10">
-        <div className="text-center mb-12">
+      <div className="container-custom max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-8 md:mb-12">
           <IntersectionObserver className="stagger-card" threshold={0.2} triggerOnce={true}>
-            <h2 className="text-3xl md:text-4xl mb-4 font-light section-title opacity-0 translate-y-8 animate-in">
+            <h2 className="text-2xl md:text-4xl mb-3 md:mb-4 font-light section-title opacity-0 translate-y-8 animate-in">
               <DataSplitting type="words" delay={0.2} stagger={0.1}>
                 Our Classes
               </DataSplitting>
             </h2>
           </IntersectionObserver>
           <IntersectionObserver className="stagger-card" threshold={0.2} triggerOnce={true}>
-            <div className="text-charcoal/80 max-w-2xl mx-auto overflow-hidden font-montserrat text-sm opacity-0 translate-y-8 animate-in">
+            <div className="text-charcoal/80 max-w-2xl mx-auto overflow-hidden font-montserrat text-sm md:text-base opacity-0 translate-y-8 animate-in px-4">
               <DataSplitting type="words" delay={0.4} stagger={0.05}>
                 Discover our range of classes designed to help you achieve your fitness goals
               </DataSplitting>
             </div>
           </IntersectionObserver>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {classes.map((classItem, index) => (
             <IntersectionObserver
               key={classItem.title}

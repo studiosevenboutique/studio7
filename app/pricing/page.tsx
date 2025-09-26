@@ -111,19 +111,19 @@ export default function PricingPage() {
         }
       `}</style>
       <div className="pt-20 min-h-screen bg-cream">
-        <div className="container-custom py-8 md:py-12">
+        <div className="container-custom py-8 md:py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {/* New to Our Studio? Section */}
             <h2 className="text-xl md:text-2xl font-light mb-4 text-center section-title mt-8">
               New to Our Studio?
             </h2>
-            <div className="grid md:grid-cols-3 gap-4 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
               <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
                 <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-2 flex-grow flex flex-col">
                   <h2 className="text-2xl sm:text-xl font-medium mb-6 sm:mb-4">Intro Offer</h2>
-                  <div className="flex-grow">
+                  <div className="flex-grow min-h-[80px] flex flex-col justify-center">
                     <p className="text-gray-600 mb-1 sm:mb-0 text-base sm:text-sm">3 x classes. New Clients only.</p>
-                    <p className="text-gray-600 mb-6 sm:mb-2 text-base sm:text-sm">&nbsp;</p>
+                    <p className="text-gray-600 mb-6 sm:mb-2 text-base sm:text-sm">Perfect for trying our studio</p>
                   </div>
                   <p className="text-3xl sm:text-2xl font-semibold mb-6 sm:mb-4">$60</p>
                 </CardContent>
@@ -134,7 +134,7 @@ export default function PricingPage() {
               <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
                 <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-2 flex-grow flex flex-col">
                   <h2 className="text-2xl sm:text-xl font-medium mb-6 sm:mb-4">Single Reformer Drop In</h2>
-                  <div className="flex-grow">
+                  <div className="flex-grow min-h-[80px] flex flex-col justify-center">
                     <p className="text-gray-600 mb-1 sm:mb-0 text-base sm:text-sm">1 x single reformer class.</p>
                     <p className="text-gray-600 mb-6 sm:mb-2 text-base sm:text-sm">Expires 12 months from purchase</p>
                   </div>
@@ -144,35 +144,22 @@ export default function PricingPage() {
                   <div className="w-full flex justify-center">{renderMindBodyWidget("100003", "Book Class")}</div>
                 </CardFooter>
               </Card>
-              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
-                <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-2 flex-grow flex flex-col">
-                  <h2 className="text-2xl sm:text-xl font-medium mb-6 sm:mb-4">B2S Special</h2>
-                  <div className="flex-grow">
-                    <p className="text-gray-600 mb-1 sm:mb-0 text-base sm:text-sm">3 x classes. Available to all our clients</p>
-                    <p className="text-gray-600 mb-6 sm:mb-2 text-base sm:text-sm">&nbsp;</p>
-                  </div>
-                  <p className="text-3xl sm:text-2xl font-semibold mb-6 sm:mb-4">$75</p>
-                </CardContent>
-                <CardFooter className="pb-6 sm:pb-4">
-                  <div className="w-full flex justify-center">{renderMindBodyWidget("100036", "Buy Now")}</div>
-                </CardFooter>
-              </Card>
             </div>
             <h2 className="text-xl md:text-2xl font-light mb-4 text-center section-title mt-8">
               Class Packs
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-4 justify-center">
-              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1">
-                <CardContent className="pt-4 pb-4 px-6 sm:pt-2 sm:pb-2 sm:px-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4 justify-center px-4 sm:px-0">
+              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
+                <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-4 flex-grow flex flex-col justify-center min-h-[140px]">
                   <h2 className="text-xl sm:text-lg font-medium mb-4 sm:mb-2">5 Class Pack</h2>
                   <p className="text-2xl sm:text-xl font-semibold mb-4 sm:mb-2">$140</p>
                 </CardContent>
-                <CardFooter className="pb-4 sm:pb-2">
+                <CardFooter className="pb-6 sm:pb-4">
                   <div className="w-full flex justify-center">{renderMindBodyWidget("100007", "Buy Now")}</div>
                 </CardFooter>
               </Card>
-              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1">
-                <CardContent className="pt-4 pb-4 px-6 sm:pt-2 sm:pb-2 sm:px-2">
+              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
+                <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-4 flex-grow flex flex-col justify-center min-h-[140px]">
                   <h2 className="text-xl sm:text-lg font-medium mb-4 sm:mb-2">10 Class Pack</h2>
                   <p className="text-2xl sm:text-xl font-semibold mb-4 sm:mb-2">$270</p>
                 </CardContent>
@@ -180,8 +167,8 @@ export default function PricingPage() {
                   <div className="w-full flex justify-center">{renderMindBodyWidget("100008", "Buy Now")}</div>
                 </CardFooter>
               </Card>
-              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1">
-                <CardContent className="pt-4 pb-4 px-6 sm:pt-2 sm:pb-2 sm:px-2">
+              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
+                <CardContent className="pt-6 pb-6 px-6 sm:pt-4 sm:pb-4 sm:px-4 flex-grow flex flex-col justify-center min-h-[140px]">
                   <h2 className="text-xl sm:text-lg font-medium mb-4 sm:mb-2">20 Class Pack</h2>
                   <p className="text-2xl sm:text-xl font-semibold mb-4 sm:mb-2">$500</p>
                 </CardContent>

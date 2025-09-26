@@ -60,7 +60,7 @@ export default function SchedulePage() {
         transition: "background-color 3s ease" // 3 second transition
       }}
     >
-      <div className="pt-20">
+      <div className="pt-12 md:pt-20 px-2 sm:px-0">
         <MindbodyTabs />
       </div>
     </div>

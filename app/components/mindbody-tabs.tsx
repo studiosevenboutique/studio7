@@ -66,11 +66,11 @@ export default function MindbodyTabs() {
   `
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-4">
-      <div className="flex justify-between mb-4">
-        <div className="flex">
+    <div className="w-full max-w-5xl mx-auto p-2 sm:p-4">
+      <div className="flex flex-col sm:flex-row sm:justify-between mb-4 space-y-3 sm:space-y-0">
+        <div className="flex flex-wrap gap-1 sm:gap-0">
           <button
-            className={`px-6 py-2 font-medium text-sm rounded-t-lg ${
+            className={`px-3 sm:px-6 py-2 font-medium text-xs sm:text-sm rounded-t-lg flex-1 sm:flex-none ${
               activeTab === "group-classes" ? "bg-white text-black" : "bg-gray-100 text-gray-500 hover:text-gray-700"
             }`}
             onClick={() => handleTabChange("group-classes")}
@@ -78,7 +78,7 @@ export default function MindbodyTabs() {
             Group Classes
           </button>
           <button
-            className={`px-6 py-2 font-medium text-sm rounded-t-lg ${
+            className={`px-3 sm:px-6 py-2 font-medium text-xs sm:text-sm rounded-t-lg flex-1 sm:flex-none ${
               activeTab === "private" ? "bg-white text-black" : "bg-gray-100 text-gray-500 hover:text-gray-700"
             }`}
             onClick={() => handleTabChange("private")}
@@ -86,18 +86,17 @@ export default function MindbodyTabs() {
             Private
           </button>
           <button
-            className={`px-6 py-2 font-medium text-sm rounded-t-lg ${
+            className={`px-3 sm:px-6 py-2 font-medium text-xs sm:text-sm rounded-t-lg flex-1 sm:flex-none ${
               activeTab === "courses" ? "bg-white text-black" : "bg-gray-100 text-gray-500 hover:text-gray-700"
             }`}
             onClick={() => handleTabChange("courses")}
           >
             Courses
           </button>
-
         </div>
-        <div className="flex space-x-4">
+        <div className="flex space-x-2 sm:space-x-4 justify-center sm:justify-end">
           <button
-            className={`px-4 py-1.5 font-medium text-sm ${
+            className={`px-3 sm:px-4 py-1.5 font-medium text-xs sm:text-sm rounded ${
               activeTab === "registrations" ? "bg-black text-white" : "bg-black text-white opacity-80 hover:opacity-100"
             }`}
             onClick={() => handleTabChange("registrations")}
@@ -105,7 +104,7 @@ export default function MindbodyTabs() {
             Register
           </button>
           <button
-            className={`px-4 py-1.5 font-medium text-sm ${
+            className={`px-3 sm:px-4 py-1.5 font-medium text-xs sm:text-sm rounded ${
               activeTab === "sign-in" ? "bg-black text-white" : "bg-black text-white opacity-80 hover:opacity-100"
             }`}
             onClick={() => handleTabChange("sign-in")}
@@ -115,7 +114,7 @@ export default function MindbodyTabs() {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-md p-4">
+      <div className="bg-white rounded-lg shadow-md p-2 sm:p-4">
         {isLoading ? (
           <div className="flex justify-center items-center h-[300px]">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
@@ -123,7 +122,7 @@ export default function MindbodyTabs() {
         ) : (
           <>
             {activeTab === "group-classes" && (
-              <div className="h-[600px]">
+              <div className="h-[calc(100vh-120px)] md:h-[calc(100vh-180px)]">
                 <iframe
                   srcDoc={`
                     <!DOCTYPE html>
@@ -148,7 +147,7 @@ export default function MindbodyTabs() {
             )}
 
             {activeTab === "private" && (
-              <div className="h-[600px]">
+              <div className="h-[calc(100vh-120px)] md:h-[calc(100vh-180px)]">
                 <iframe
                   srcDoc={`
                     <!DOCTYPE html>
@@ -173,7 +172,7 @@ export default function MindbodyTabs() {
             )}
 
             {activeTab === "courses" && (
-              <div className="h-[600px]">
+              <div className="h-[calc(100vh-120px)] md:h-[calc(100vh-180px)]">
                 <iframe
                   srcDoc={`
                     <!DOCTYPE html>
@@ -198,7 +197,7 @@ export default function MindbodyTabs() {
             )}
 
             {activeTab === "my-schedule" && (
-              <div className="h-[600px]">
+              <div className="h-[calc(100vh-120px)] md:h-[calc(100vh-180px)]">
                 <iframe
                   srcDoc={`
                     <!DOCTYPE html>
@@ -223,7 +222,7 @@ export default function MindbodyTabs() {
             )}
 
             {activeTab === "registrations" && (
-              <div className="h-[600px]">
+              <div className="h-[calc(100vh-160px)] sm:h-[calc(100vh-180px)]">
                 <iframe
                   srcDoc={`
                     <!DOCTYPE html>
@@ -248,7 +247,7 @@ export default function MindbodyTabs() {
             )}
 
             {activeTab === "sign-in" && (
-              <div className="h-[600px]">
+              <div className="h-[calc(100vh-160px)] sm:h-[calc(100vh-180px)]">
                 <iframe
                   srcDoc={`
                     <!DOCTYPE html>
