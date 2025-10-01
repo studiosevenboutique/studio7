@@ -19,7 +19,7 @@ const upcomingEvents = [
     location: "Studio Seven",
     description: "Join us for an evening of glow and guidance with special guest Dilene Duarte, as she dives into skincare from the inside out. Learn how to support your skin through mindful routines, holistic practices, and lymphatic drainage—and enjoy a live gua sha demo for the face and body using her signature tools, now available at Studio Seven. Enjoy signature collagen mocktails, sweet treats and complimentary ear seeds. All guests will receive a complimentary gift bag upon arrival. All proceeds will be donated to The Princess Margaret Cancer Centre in support of Breast Cancer Month.",
     price: "$100",
-    image: "/images/pri.png",
+    image: "/images/PRI.png",
     spots: "Limited spots available",
     bookingUrl: "/schedule?tab=courses&date=2025-10-29",
     buttonText: "RSVP"
