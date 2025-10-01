@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import MindbodyTabs from "../components/mindbody-tabs"
 import Script from "next/script"
 
-export default function SchedulePage() {
+function ScheduleContent() {
   const [scrollPosition, setScrollPosition] = useState(0)
   const [backgroundColor, setBackgroundColor] = useState("rgb(255, 255, 255)") // Start with white
   const [isLoaded, setIsLoaded] = useState(false)
@@ -59,9 +59,9 @@ export default function SchedulePage() {
   }, [isLoaded])
 
   return (
-    <div 
+    <div
       className="min-h-screen"
-      style={{ 
+      style={{
         backgroundColor,
         transition: "background-color 3s ease" // 3 second transition
       }}
@@ -70,5 +70,17 @@ export default function SchedulePage() {
         <MindbodyTabs initialTab={initialTab} targetDate={targetDate} />
       </div>
     </div>
+  )
+}
+
+export default function SchedulePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    }>
+      <ScheduleContent />
+    </Suspense>
   )
 }
