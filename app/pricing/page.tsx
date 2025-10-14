@@ -134,35 +134,25 @@ export default function PricingPage() {
             </h2>
 
             {/* Club 7 Component */}
-            <div className="mb-16">
-              <Card className="bg-white shadow-lg border-0 rounded-lg overflow-hidden">
-                <CardContent className="p-6 md:p-8 text-center">
-                  <h3 className="text-2xl md:text-3xl font-light mb-6 text-charcoal">
-                    Club 7
-                  </h3>
-                  <div className="space-y-4 text-charcoal/80 leading-relaxed">
-                    <p className="text-base md:text-lg">
-                      Introducing Club 7 — our members-only Pilates experience designed for women who want more than just a workout.
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-4 mb-8 max-w-md mx-auto">
+              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
+                <CardContent className="pt-3 pb-3 px-6 sm:pt-2 sm:pb-2 sm:px-2 flex-grow flex flex-col">
+                  <h2 className="text-2xl sm:text-xl font-medium mb-3 sm:mb-2">Club 7</h2>
+                  <div className="flex-grow min-h-[84px] flex flex-col justify-center">
+                    <p className="text-gray-600 mb-2 text-base sm:text-sm">
+                      Members-only Pilates experience for those who want more than just a workout.
                     </p>
-                    <p className="text-base md:text-lg">
-                      Very limited spots available at our exclusive founders rate:
+                    <p className="text-gray-600 mb-2 text-base sm:text-sm">
+                      Very limited spots at exclusive founders rate.
                     </p>
-                    <p className="text-lg md:text-xl font-medium text-charcoal">
-                      $250 + HST/month — one time only.
-                    </p>
-                    <p className="text-base md:text-lg">
-                      ✨ The first 10 sign-ups will receive an exclusive CLUB 7 gift!
-                    </p>
-                    <p className="text-base md:text-lg">
-                      Join us and become part of something special — where movement meets connection, and fitness feels effortless.
-                    </p>
-                    <p className="text-base md:text-lg">
-                      Sign up now at the link in our bio. 🤍
+                    <p className="text-gray-600 mb-2 text-base sm:text-sm">
+                      ✨ First 10 sign-ups get exclusive CLUB 7 gift!
                     </p>
                   </div>
+                  <p className="text-3xl sm:text-2xl font-semibold mb-3 sm:mb-2">$250 + HST/month</p>
                 </CardContent>
-                <CardFooter className="p-6 md:p-8 pt-0">
-                  <div className="w-full">
+                <CardFooter className="pb-3 sm:pb-2">
+                  <div className="w-full flex justify-center">
                     <div
                       dangerouslySetInnerHTML={{
                         __html: `<script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" type="text/javascript"></script><healcode-widget data-version="0.2" data-link-class="healcode-contract-text-link" data-site-id="126366" data-mb-site-id="5744900" data-service-id="100" data-bw-identity-site="true" data-type="contract-link" data-inner-html="Buy Now" />`,
