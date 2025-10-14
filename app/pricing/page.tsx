@@ -124,6 +124,28 @@ export default function PricingPage() {
         .healcode-contract-text-link:hover {
           background-color: #444;
         }
+        .club7-card {
+          max-height: 400px !important;
+        }
+        .club7-content {
+          padding-top: 0.75rem !important;
+          padding-bottom: 0.75rem !important;
+        }
+        .club7-content h2 {
+          margin-bottom: 0.75rem !important;
+        }
+        .club7-content .min-h-\\[84px\\] {
+          min-height: 84px !important;
+        }
+        @media (max-width: 640px) {
+          .club7-content {
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+          }
+          .club7-content h2 {
+            margin-bottom: 0.5rem !important;
+          }
+        }
       `}</style>
       <div className="pt-20 min-h-screen bg-cream">
         <div className="container-custom py-8 md:py-12 px-4 sm:px-6 lg:px-8">
@@ -135,8 +157,8 @@ export default function PricingPage() {
 
             {/* Club 7 Component */}
             <div className="grid grid-cols-1 md:grid-cols-1 gap-4 mb-8 max-w-md mx-auto">
-              <Card className="border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
-                <CardContent className="pt-3 pb-3 px-6 sm:pt-2 sm:pb-2 sm:px-2 flex-grow flex flex-col">
+              <Card className="club7-card border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
+                <CardContent className="club7-content pt-3 pb-3 px-6 sm:pt-2 sm:pb-2 sm:px-2 flex-grow flex flex-col">
                   <h2 className="text-2xl sm:text-xl font-medium mb-3 sm:mb-2">Club 7</h2>
                   <div className="flex-grow min-h-[84px] flex flex-col justify-center">
                     <p className="text-gray-600 mb-2 text-base sm:text-sm">
