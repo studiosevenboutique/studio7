@@ -159,19 +159,16 @@ export default function PricingPage() {
             <div className="grid grid-cols-1 md:grid-cols-1 gap-4 mb-8 max-w-md mx-auto">
               <Card className="club7-card border shadow-sm bg-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/20 animate-fade-in-up text-base sm:text-sm p-2 sm:p-1 flex flex-col h-full">
                 <CardContent className="club7-content pt-3 pb-3 px-6 sm:pt-2 sm:pb-2 sm:px-2 flex-grow flex flex-col">
-                  <h2 className="text-2xl sm:text-xl font-medium mb-3 sm:mb-2">Club 7</h2>
+                  <h2 className="text-2xl sm:text-xl font-medium mb-3 sm:mb-2">CLUB 7 MEMBERSHIP</h2>
                   <div className="flex-grow min-h-[84px] flex flex-col justify-center">
-                    <p className="text-gray-600 mb-2 text-base sm:text-sm">
-                      Members-only Pilates experience for those who want more than just a workout.
-                    </p>
-                    <p className="text-gray-600 mb-2 text-base sm:text-sm">
-                      Very limited spots at exclusive founders rate.
-                    </p>
-                    <p className="text-gray-600 mb-2 text-base sm:text-sm">
-                      ✨ First 10 sign-ups get exclusive CLUB 7 gift!
-                    </p>
+                    <div className="text-gray-600 space-y-1">
+                      <p className="text-base sm:text-sm">Unlimited classes (1x per day)</p>
+                      <p className="text-base sm:text-sm">One complimentary matcha each month</p>
+                      <p className="text-base sm:text-sm">2 free guest passes per month</p>
+                      <p className="text-base sm:text-sm">15% off all merch</p>
+                    </div>
                   </div>
-                  <p className="text-3xl sm:text-2xl font-semibold mb-3 sm:mb-2">$250 + HST/month</p>
+                  <p className="text-3xl sm:text-2xl font-semibold mb-3 sm:mb-2">$250 / month</p>
                 </CardContent>
                 <CardFooter className="pb-3 sm:pb-2">
                   <div className="w-full flex justify-center">
