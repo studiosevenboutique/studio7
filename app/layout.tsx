@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
 import { Raleway, Raleway_Dots, Montserrat } from "next/font/google"
 import { PT_Sans } from "next/font/google"
 import localFont from "next/font/local"
@@ -139,6 +140,20 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+
+        {/* Omnisend Tracking Script */}
+        <Script id="omnisend-tracking" strategy="afterInteractive">
+          {`
+            window.omnisend = window.omnisend || [];
+            omnisend.push(["brandID", "69040a21dbcab19dc5cbac8d"]);
+            omnisend.push(["track", "$pageViewed"]);
+            !function(){var e=document.createElement("script");
+            e.type="text/javascript",e.async=!0,
+            e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
+            var t=document.getElementsByTagName("script")[0];
+            t.parentNode.insertBefore(e,t)}();
+          `}
+        </Script>
       </body>
     </html>
   )
