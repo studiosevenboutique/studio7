@@ -235,6 +235,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-4 border-t border-sand/50 text-center text-xs text-charcoal/70">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-2">
+            <Link
+              href="/privacy-policy"
+              className="text-charcoal/70 hover:text-charcoal transition-colors underline"
+            >
+              Privacy Policy
+            </Link>
+          </div>
           <p className="text-xs opacity-60">© 2025 Studio Seven. All rights reserved.</p>
         </div>
       </div>

@@ -13,16 +13,28 @@ import { FormPopover } from "@/components/form-popover"
 const upcomingEvents = [
   {
     id: 1,
-    title: "Detox, Flow, Restore with Dilene Duarte",
-    date: "Wednesday, October 29th",
-    time: "6:30 PM - 9:00 PM",
+    title: "The Wellness Formula with Dr. Son",
+    date: "Wed July 30, 2025",
+    time: "7:00 PM - 9:00 PM",
     location: "Studio Seven",
-    description: "Join us for an evening of glow and guidance with special guest Dilene Duarte, as she dives into skincare from the inside out. Learn how to support your skin through mindful routines, holistic practices, and lymphatic drainage—and enjoy a live gua sha demo for the face and body using her signature tools, now available at Studio Seven. Enjoy signature collagen mocktails, sweet treats and complimentary ear seeds. All guests will receive a complimentary gift bag upon arrival. All proceeds will be donated to The Princess Margaret Cancer Centre in support of Breast Cancer Month.",
-    price: "$100",
-    image: "/images/PRI.png",
+    description: "Join us at Studio Seven for a free, educational wellness evening with guest Dr. Son Nguyen, on the benefits of Reformer Pilates! Enjoy light bites, refreshing drinks, and a chance to connect with like-minded wellness enthusiasts!",
+    price: "Free",
+    image: "/images/yoga.jpg",
     spots: "Limited spots available",
-    bookingUrl: "/schedule?tab=courses&date=2025-10-29",
-    buttonText: "RSVP"
+    bookingUrl: "https://www.eventbrite.com/e/the-wellness-formula-with-dr-son-tickets-1478233790059?aff=oddtdtcreator"
+  },
+  {
+    id: 2,
+    title: "The Studio Seven Drip Room",
+    date: "Saturday, August 2nd",
+    time: "10:00 AM - 3:00 PM",
+    location: "Studio Seven",
+    description: "Introducing our newest addition to the studio: The Studio Boost Infusion + Vital 7 NAD+ Injectable — available for the perfect post class recovery boost.",
+    price: "TBD",
+    image: "/images/chair.JPG",
+    spots: "Limited availability",
+    bookingUrl: "https://reverymed.janeapp.com/locations/studio-seven-boutique-vitamin-infusion-clinic/book#staff_member/2",
+    buttonText: "Book Now"
   }
 ]
 
