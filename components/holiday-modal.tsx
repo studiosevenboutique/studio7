@@ -1,25 +1,156 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Script from "next/script"
 
 export default function HolidayModal() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scriptLoaded, setScriptLoaded] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    // Show modal after a short delay when page loads
+    // Show modal after 3 seconds when page loads
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 500)
+    }, 3000)
 
     return () => clearTimeout(timer)
   }, [])
+
+
+
+  useEffect(() => {
+    // Create audio element when modal opens
+    if (isOpen && typeof window !== 'undefined') {
+      console.log('Creating audio element...')
+      const audio = document.createElement('audio')
+      audio.src = '/images/studiosevenjingle.mp3'
+      audio.loop = true
+      audio.preload = 'auto'
+      audio.volume = 0.3
+
+      // Add to DOM (required for some browsers)
+      audio.style.display = 'none'
+      document.body.appendChild(audio)
+
+      // Store audio reference
+      audioRef.current = audio
+
+      // Add event listeners
+      const onPlaying = () => {
+        console.log('🎵 Audio is now playing')
+      }
+
+      const onPause = () => {
+        console.log('⏸️ Audio paused')
+      }
+
+      const onError = (e: any) => {
+        console.error('Audio error:', e)
+      }
+
+      audio.addEventListener('playing', onPlaying)
+      audio.addEventListener('pause', onPause)
+      audio.addEventListener('error', onError)
+
+      // Load the audio
+      audio.load()
+
+      // Attempt autoplay immediately when modal opens
+      console.log('Attempting to autoplay...')
+      const playPromise = audio.play()
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('✅ Autoplay successful!')
+          })
+          .catch(() => {
+            console.log('⚠️ Autoplay blocked - setting up interaction listeners...')
+
+            // Set up one-time event listeners to play on first interaction
+            const playOnInteraction = (e: Event) => {
+              console.log('🎯 User interaction detected:', e.type)
+              console.log('Event isTrusted:', e.isTrusted)
+              console.log('Audio element exists:', !!audio)
+              console.log('Audio paused:', audio?.paused)
+
+              if (audio && audio.paused) {
+                console.log('Calling play()...')
+                const promise = audio.play()
+                console.log('Play promise:', promise)
+
+                if (promise !== undefined) {
+                  promise
+                    .then(() => console.log('✅ Audio started after interaction!'))
+                    .catch((err) => console.error('Failed:', err.message, err))
+                }
+              }
+            }
+
+            // Add listeners that will trigger on first interaction - use capture phase
+            window.addEventListener('click', playOnInteraction, { once: true, capture: true })
+            window.addEventListener('keydown', playOnInteraction, { once: true, capture: true })
+            window.addEventListener('touchstart', playOnInteraction, { once: true, capture: true })
+            window.addEventListener('mousedown', playOnInteraction, { once: true, capture: true })
+          })
+      }
+
+      return () => {
+        // Cleanup
+        console.log('Cleaning up audio...')
+        audio.removeEventListener('playing', onPlaying)
+        audio.removeEventListener('pause', onPause)
+        audio.removeEventListener('error', onError)
+        audio.pause()
+        audio.currentTime = 0
+        if (audio.parentNode) {
+          audio.parentNode.removeChild(audio)
+        }
+        audioRef.current = null
+      }
+    }
+  }, [isOpen])
+
+
+
+
+
+  useEffect(() => {
+    // Reinitialize Mindbody widget when script loads
+    if (scriptLoaded && isOpen && typeof window !== 'undefined') {
+      // @ts-ignore
+      if (window.HealCode) {
+        // @ts-ignore
+        window.HealCode.init()
+      }
+    }
+  }, [scriptLoaded, isOpen])
 
   if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      {/* Snowflakes Animation */}
+      <div className="snowflakes-container">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={`snowflake-${i}`}
+            className="snowflake"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${5 + Math.random() * 10}s`,
+              opacity: Math.random() * 0.6 + 0.4,
+              fontSize: `${10 + Math.random() * 20}px`,
+            }}
+          >
+            ❄
+          </div>
+        ))}
+      </div>
+
       <div className="relative max-w-md w-full mx-4">
         {/* Christmas Lights Border - Outside the modal */}
         <div className="absolute inset-0 rounded-2xl pointer-events-none">
@@ -105,18 +236,14 @@ export default function HolidayModal() {
                 $185 <span className="text-sm font-normal text-charcoal/60">+ HST</span>
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button
-                size="lg"
-                className="bg-charcoal text-white hover:bg-charcoal/90 rounded-full px-8"
-                onClick={() => {
-                  // Add your booking link here
-                  window.location.href = "/pricing"
+            <div className="flex justify-center items-center">
+              {/* Mindbody Buy Now Button */}
+              <div
+                id="mindbody-buy-now-container"
+                dangerouslySetInnerHTML={{
+                  __html: `<healcode-widget data-version="0.2" data-link-class="healcode-pricing-option-text-link" data-site-id="126366" data-mb-site-id="5744900" data-service-id="100065" data-bw-identity-site="true" data-type="pricing-link" data-inner-html="Buy Now" />`
                 }}
-              >
-                Get Your Pass
-              </Button>
-              
+              />
             </div>
           </div>
         </div>
@@ -180,7 +307,45 @@ export default function HolidayModal() {
             opacity: 0.3;
           }
         }
+
+        /* Snowflakes Animation */
+        .snowflakes-container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          overflow: hidden;
+          z-index: 1;
+        }
+
+        .snowflake {
+          position: absolute;
+          top: -20px;
+          color: white;
+          user-select: none;
+          animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+          0% {
+            top: -10%;
+            transform: translateX(0) rotate(0deg);
+          }
+          100% {
+            top: 110%;
+            transform: translateX(20px) rotate(360deg);
+          }
+        }
       `}</style>
+
+      {/* Mindbody Healcode Script */}
+      <Script
+        src="https://widgets.mindbodyonline.com/javascripts/healcode.js"
+        strategy="afterInteractive"
+        onLoad={() => setScriptLoaded(true)}
+      />
     </div>
   )
 }
