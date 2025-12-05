@@ -10,33 +10,7 @@ import { useFormSubmission } from "@/hooks/use-form-submission"
 import { FormPopover } from "@/components/form-popover"
 
 // Sample events data - replace with real data
-const upcomingEvents = [
-  {
-    id: 1,
-    title: "The Wellness Formula with Dr. Son",
-    date: "Wed July 30, 2025",
-    time: "7:00 PM - 9:00 PM",
-    location: "Studio Seven",
-    description: "Join us at Studio Seven for a free, educational wellness evening with guest Dr. Son Nguyen, on the benefits of Reformer Pilates! Enjoy light bites, refreshing drinks, and a chance to connect with like-minded wellness enthusiasts!",
-    price: "Free",
-    image: "/images/yoga.jpg",
-    spots: "Limited spots available",
-    bookingUrl: "https://www.eventbrite.com/e/the-wellness-formula-with-dr-son-tickets-1478233790059?aff=oddtdtcreator"
-  },
-  {
-    id: 2,
-    title: "The Studio Seven Drip Room",
-    date: "Saturday, August 2nd",
-    time: "10:00 AM - 3:00 PM",
-    location: "Studio Seven",
-    description: "Introducing our newest addition to the studio: The Studio Boost Infusion + Vital 7 NAD+ Injectable — available for the perfect post class recovery boost.",
-    price: "TBD",
-    image: "/images/chair.JPG",
-    spots: "Limited availability",
-    bookingUrl: "https://reverymed.janeapp.com/locations/studio-seven-boutique-vitamin-infusion-clinic/book#staff_member/2",
-    buttonText: "Book Now"
-  }
-]
+const upcomingEvents: any[] = []
 
 // Custom Dropdown Component
 interface DropdownOption {

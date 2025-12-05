@@ -8,6 +8,7 @@ export default function HolidayModal() {
   const [isOpen, setIsOpen] = useState(false)
   const [scriptLoaded, setScriptLoaded] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [audioMuted, setAudioMuted] = useState(true)
 
   useEffect(() => {
     // Show modal after 3 seconds when page loads
@@ -21,95 +22,32 @@ export default function HolidayModal() {
 
 
   useEffect(() => {
-    // Create audio element when modal opens
-    if (isOpen && typeof window !== 'undefined') {
-      console.log('Creating audio element...')
-      const audio = document.createElement('audio')
-      audio.src = '/images/studiosevenjingle.mp3'
-      audio.loop = true
-      audio.preload = 'auto'
-      audio.volume = 0.3
-
-      // Add to DOM (required for some browsers)
-      audio.style.display = 'none'
-      document.body.appendChild(audio)
-
-      // Store audio reference
-      audioRef.current = audio
-
-      // Add event listeners
-      const onPlaying = () => {
-        console.log('🎵 Audio is now playing')
-      }
-
-      const onPause = () => {
-        console.log('⏸️ Audio paused')
-      }
-
-      const onError = (e: any) => {
-        console.error('Audio error:', e)
-      }
-
-      audio.addEventListener('playing', onPlaying)
-      audio.addEventListener('pause', onPause)
-      audio.addEventListener('error', onError)
-
-      // Load the audio
-      audio.load()
-
-      // Attempt autoplay immediately when modal opens
-      console.log('Attempting to autoplay...')
-      const playPromise = audio.play()
-
-      if (playPromise !== undefined) {
-        playPromise
+    // Set up interaction listener to unmute and play audio
+    const handleInteraction = () => {
+      if (audioRef.current && isOpen) {
+        console.log('🎯 User interaction - playing audio')
+        audioRef.current.muted = false
+        audioRef.current.play()
           .then(() => {
-            console.log('✅ Autoplay successful!')
+            console.log('✅ Audio playing!')
+            setAudioMuted(false)
           })
-          .catch(() => {
-            console.log('⚠️ Autoplay blocked - setting up interaction listeners...')
-
-            // Set up one-time event listeners to play on first interaction
-            const playOnInteraction = (e: Event) => {
-              console.log('🎯 User interaction detected:', e.type)
-              console.log('Event isTrusted:', e.isTrusted)
-              console.log('Audio element exists:', !!audio)
-              console.log('Audio paused:', audio?.paused)
-
-              if (audio && audio.paused) {
-                console.log('Calling play()...')
-                const promise = audio.play()
-                console.log('Play promise:', promise)
-
-                if (promise !== undefined) {
-                  promise
-                    .then(() => console.log('✅ Audio started after interaction!'))
-                    .catch((err) => console.error('Failed:', err.message, err))
-                }
-              }
-            }
-
-            // Add listeners that will trigger on first interaction - use capture phase
-            window.addEventListener('click', playOnInteraction, { once: true, capture: true })
-            window.addEventListener('keydown', playOnInteraction, { once: true, capture: true })
-            window.addEventListener('touchstart', playOnInteraction, { once: true, capture: true })
-            window.addEventListener('mousedown', playOnInteraction, { once: true, capture: true })
-          })
+          .catch((err) => console.error('Play failed:', err.message))
       }
+    }
 
-      return () => {
-        // Cleanup
-        console.log('Cleaning up audio...')
-        audio.removeEventListener('playing', onPlaying)
-        audio.removeEventListener('pause', onPause)
-        audio.removeEventListener('error', onError)
-        audio.pause()
-        audio.currentTime = 0
-        if (audio.parentNode) {
-          audio.parentNode.removeChild(audio)
-        }
-        audioRef.current = null
-      }
+    if (isOpen) {
+      window.addEventListener('click', handleInteraction, { once: true })
+      window.addEventListener('mousemove', handleInteraction, { once: true })
+      window.addEventListener('keydown', handleInteraction, { once: true })
+      window.addEventListener('touchstart', handleInteraction, { once: true })
+    }
+
+    return () => {
+      window.removeEventListener('click', handleInteraction)
+      window.removeEventListener('mousemove', handleInteraction)
+      window.removeEventListener('keydown', handleInteraction)
+      window.removeEventListener('touchstart', handleInteraction)
     }
   }, [isOpen])
 
@@ -132,6 +70,17 @@ export default function HolidayModal() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      {/* Audio Element */}
+      <audio
+        ref={audioRef}
+        src="/images/studiosevenjingle.mp3"
+        loop
+        muted={audioMuted}
+        autoPlay
+        preload="auto"
+        style={{ display: 'none' }}
+      />
+
       {/* Snowflakes Animation */}
       <div className="snowflakes-container">
         {[...Array(50)].map((_, i) => (

@@ -10,7 +10,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import StructuredData from "@/components/structured-data"
-import HolidayModal from "@/components/holiday-modal"
 
 // Montserrat for hero text
 const montserrat = Montserrat({
@@ -140,7 +139,6 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
-          <HolidayModal />
         </ThemeProvider>
 
         {/* Omnisend Tracking Script */}
