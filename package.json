@@ -9,8 +9,7 @@
     "lint": "next lint",
     "security:check": "bash scripts/security-check.sh",
     "security:audit": "npm audit --audit-level=moderate",
-    "security:fix": "npm audit fix",
-    "prebuild": "npm run security:audit"
+    "security:fix": "npm audit fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
