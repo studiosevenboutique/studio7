@@ -10,15 +10,15 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://omnisnippet1.com https://www.googletagmanager.com https://www.google-analytics.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://omnisnippet1.com https://www.googletagmanager.com https://www.google-analytics.com https://widgets.mindbodyonline.com https://*.healcode.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://widgets.mindbodyonline.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: blob:",
-              "connect-src 'self' https://omnisnippet1.com https://www.google-analytics.com",
-              "frame-src 'self'",
+              "connect-src 'self' https://omnisnippet1.com https://www.google-analytics.com https://widgets.mindbodyonline.com https://*.healcode.com https://*.mindbodyonline.com",
+              "frame-src 'self' https://widgets.mindbodyonline.com https://*.healcode.com",
               "object-src 'none'",
               "base-uri 'self'",
-              "form-action 'self'",
+              "form-action 'self' https://widgets.mindbodyonline.com",
               "frame-ancestors 'none'",
               "upgrade-insecure-requests"
             ].join('; ')
