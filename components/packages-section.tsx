@@ -24,7 +24,7 @@ const packages = [
   },
   {
     title: "Monthly Unlimited",
-    price: "$250",
+    price: "$200",
     description: "Best value for dedicated Pilates enthusiasts.",
     features: ["Unlimited classes", "Priority booking", "One complimentary guest pass", "Monthly auto-renewal"],
     popular: false,

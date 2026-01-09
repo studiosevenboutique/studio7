@@ -96,7 +96,7 @@ export async function getPackages(): Promise<Package[]> {
     {
       id: "pkg-3",
       name: "Monthly Unlimited",
-      price: 250,
+      price: 200,
       description: "Unlimited classes for one month",
       classes: -1, // -1 indicates unlimited
       validDays: 30,
