@@ -45,6 +45,7 @@ export default function AuthPage() {
                       src="https://widgets.mindbodyonline.com/javascripts/healcode.js"
                       strategy="afterInteractive"
                     />
+                    {/* @ts-ignore - Custom MindBody widget element */}
                     <healcode-widget
                       data-type="registrations"
                       data-widget-partner="object"

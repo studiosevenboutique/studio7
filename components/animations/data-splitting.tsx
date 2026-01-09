@@ -22,7 +22,7 @@ export default function DataSplitting({
   stagger = 0.05,
   animationType = "3d",
 }: DataSplittingProps) {
-  const containerRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -157,6 +157,7 @@ export default function DataSplitting({
   }, [children, type, delay, stagger, animationType])
 
   return (
+    // @ts-ignore - Dynamic component ref
     <Component ref={containerRef} className={cn("inline-block perspective-500", className)}>
       {children}
     </Component>
