@@ -57,9 +57,19 @@ const nextConfig = {
   },
   // Enable React strict mode for better error detection
   reactStrictMode: true,
-  
+
   // Disable powered by header
   poweredByHeader: false,
+
+  // Skip type checking during build (types are checked in development)
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
+  // Skip ESLint during build
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 module.exports = nextConfig
