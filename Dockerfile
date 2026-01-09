@@ -22,10 +22,11 @@ FROM node:18-alpine AS runner
 WORKDIR /app
 
 # Copy necessary files from builder
-COPY --from=builder /app/next.config.mjs ./
+COPY --from=builder /app/next.config.* ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/package.json ./package.json
 
 # Set environment variables
 ENV NODE_ENV=production
