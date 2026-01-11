@@ -168,7 +168,7 @@ export default function PricingPage() {
                       <p className="text-base sm:text-sm">15% off all merch</p>
                     </div>
                   </div>
-                  <p className="text-3xl sm:text-2xl font-semibold mb-3 sm:mb-2">$250 / month</p>
+                  <p className="text-3xl sm:text-2xl font-semibold mb-3 sm:mb-2">$200 / month</p>
                 </CardContent>
                 <CardFooter className="pb-3 sm:pb-2">
                   <div className="w-full flex justify-center">
